@@ -8,7 +8,11 @@
 		non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
 	</p>
 
-	<button class="btn btn-success rounded-pill font-styled m-1">I'm a volunteer</button>
-	<br>
-	<button class="btn btn-success rounded-pill font-styled m-1">I'm looking for volunteers</button>
+	<a href="/volunteer">
+		<button class="btn btn-success rounded-pill font-styled m-1">I'm a volunteer</button></a
+	>
+	<br />
+	<a href="/organization">
+		<button class="btn btn-success rounded-pill font-styled m-1">I'm looking for volunteers</button>
+	</a>
 </div>
