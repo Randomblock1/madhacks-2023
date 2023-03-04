@@ -66,11 +66,15 @@
 
 @import 'bootstrap/scss/utilities/api';
 
-h1 {
-	font-family: 'Chonburi';
-	font-size: 48px;
+// define divs
+body {
+	background-color: #b6f0bc;
+	color: #000000;
 }
-h2 {
+.navbar-brand {
 	font-family: 'Chonburi';
-	font-size: 36px;
+	font-size: x-large;
+	size: 40px;
+	color: #000000;
+	padding: 0;
 }
