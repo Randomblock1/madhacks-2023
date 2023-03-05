@@ -80,5 +80,12 @@ body {
 }
 
 .font-styled {
-	font-family: 'Chonburi'
+	font-family: 'Chonburi';
+}
+
+.rounded-box {
+	border-radius: 20px;
+	padding: 20px;
+	display: inline-block;
+	background-color: #a6cbc3;
 }
