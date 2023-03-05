@@ -11,21 +11,20 @@
 
 	async function loadEvents() {
 		const eventRequest = await fetch(API_URL + '/events', { credentials: 'include' });
-		const userEventRequest = await fetch(API_URL + '/user', { credentials: 'include' });
+		const userEventRequest = await fetch(API_URL + '/users', { credentials: 'include' });
 		events = await eventRequest.json();
-		const userEvents = (await userEventRequest.json())['currentCommitments'];
+		const userEvents = await userEventRequest.json();
 		for (let i = 0; i < events.length; i++) {
-			events[i]['isRegistered'] = userEvents.includes(events[i]['_id']);
+			events[i]['isRegistered'] = userEvents['currentCommitments'].includes(events[i]['_id']);
 			events[i]['buttonStyle'] = determineStyle(events[i]);
 			events[i]['buttonText'] = determineText(events[i]);
-			events[i]['distance'] = calcDist(events[i].location.lat, events[i].location.lon, userEvents.location.lat, userEvents.location.lon, "N");
 		}
 		console.log(events);
 		console.log(userEvents);
 	}
 
-	onMount(loadEvents);
 	onMount(ensureLogin);
+	onMount(loadEvents);
 
 	/**
 	 * @param {{ [x: string]: boolean; }} event
@@ -80,36 +79,39 @@
 		events = events;
 	}
 
-	 /**
+	/**
 	 * @param {number} lat1
 	 * @param {number} lon1
 	 * @param {number} lat2
 	 * @param {number} lon2
 	 * @param {string} unit
 	 */
-	 function calcDist(lat1, lon1, lat2, lon2, unit) {
-		
-	if ((lat1 == lat2) && (lon1 == lon2)) {
-		return 0;
-	}
-	else {
-		var radlat1 = Math.PI * lat1/180;
-		var radlat2 = Math.PI * lat2/180;
-		var theta = lon1-lon2;
-		var radtheta = Math.PI * theta/180;
-		var dist = Math.sin(radlat1) * Math.sin(radlat2) + Math.cos(radlat1) * Math.cos(radlat2) * Math.cos(radtheta);
-		if (dist > 1) {
-			dist = 1;
+	function calcDist(lat1, lon1, lat2, lon2, unit) {
+		if (lat1 == lat2 && lon1 == lon2) {
+			return 0;
+		} else {
+			var radlat1 = (Math.PI * lat1) / 180;
+			var radlat2 = (Math.PI * lat2) / 180;
+			var theta = lon1 - lon2;
+			var radtheta = (Math.PI * theta) / 180;
+			var dist =
+				Math.sin(radlat1) * Math.sin(radlat2) +
+				Math.cos(radlat1) * Math.cos(radlat2) * Math.cos(radtheta);
+			if (dist > 1) {
+				dist = 1;
+			}
+			dist = Math.acos(dist);
+			dist = (dist * 180) / Math.PI;
+			dist = dist * 60 * 1.1515;
+			if (unit == 'K') {
+				dist = dist * 1.609344;
+			}
+			if (unit == 'N') {
+				dist = dist * 0.8684;
+			}
+			return dist;
 		}
-		dist = Math.acos(dist);
-		dist = dist * 180/Math.PI;
-		dist = dist * 60 * 1.1515;
-		if (unit=="K") { dist = dist * 1.609344 }
-		if (unit=="N") { dist = dist * 0.8684 }
-		return dist;
 	}
-}
-
 </script>
 
 <div class="container">
@@ -136,12 +138,11 @@
 			</p>
 			<p>{event['description'] || 'Undefined Description'}</p>
 			<p>
-				Volunteers: {event['numVolunteersCurrently'] || '0'} out of {event[
-					'numVolunteersNeeded'
-				] || 'Unknown'}
+				Volunteers: {event['numVolunteersCurrently'] || '0'} out of {event['numVolunteersNeeded'] ||
+					'Unknown'}
 			</p>
 			<p>
-				Distance away: {event['distance'] || "Unknown"} 
+				Distance away: {event['distance'] || 'Unknown'}
 			</p>
 			<button
 				on:click={() => modifyRegistration(event)}
