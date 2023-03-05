@@ -1,6 +1,7 @@
 <script>
 	import { onMount } from 'svelte';
 	import { API_URL } from '$lib/env.js';
+	import { ensureLogin } from '$lib/ensureLogin';
 
 	/**
 	 * @type {string | any[]}
@@ -22,6 +23,7 @@
 	}
 
 	onMount(loadEvents);
+	onMount(ensureLogin);
 
 	/**
 	 * @param {{ [x: string]: boolean; }} event
@@ -45,7 +47,6 @@
 		return 'Register';
 	}
 
-	
 	/**
 	 * @param {{ [x: string]: any; numVolunteersCurrently: any; isRegistered: any; }} event
 	 */
@@ -80,8 +81,8 @@
 
 <div class="container">
 	<h1 class="font-styled">Events</h1>
-	{#if events.length == 0}
-		<h2 class="font-styled">No events found 😕 Are you logged in?</h2>
+	{#if events == ''}
+		<h2 class="font-styled">Loading events...</h2>
 	{/if}
 	{#each events as event}
 		<div class="rounded-box m-2" style="width: 50%">
