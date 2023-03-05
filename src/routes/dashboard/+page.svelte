@@ -1,5 +1,6 @@
 <script>
 	import { onMount } from 'svelte';
+    import { API_URL } from '$lib/env.js';
 
 	/**
 	 * @type {string | any[]}
@@ -11,8 +12,8 @@
 	let user = [];
 
 	async function loadData() {
-		const eventRequest = await fetch('http://localhost:8000/events', { credentials: 'include' });
-		const userEventRequest = await fetch('http://localhost:8000/users?full=true', {
+		const eventRequest = await fetch(API_URL + '/events', { credentials: 'include' });
+		const userEventRequest = await fetch(API_URL + '/users?full=true', {
 			credentials: 'include'
 		});
 		const tst = await userEventRequest.json();
@@ -75,5 +76,9 @@
 				{/if}
 			</div>
 		</div>
+        <div class="row">
+            <script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js" integrity="sha512-gZwIG9x3wUXg2hdXF6+rVkLF/0Vi9U8D2Ntg4Ga5I5BZpVkVxlJWbSQtXPSiUTtC0TjtGOmxa1AJPuV0CPthew==" crossorigin=""></script>
+            <div id="map"></div>
+        </div>
 	</div>
 </div>
