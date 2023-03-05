@@ -16,6 +16,7 @@
 		"@popperjs/core": "^2.11.5",
 		"@sveltejs/adapter-auto": "^2.0.0",
 		"@sveltejs/kit": "^1.5.0",
+		"@types/googlemaps": "^3.43.3",
 		"bootstrap": "^5.2.0",
 		"eslint": "^8.28.0",
 		"eslint-config-prettier": "^8.5.0",
