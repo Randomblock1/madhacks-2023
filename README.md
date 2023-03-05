@@ -1,38 +1,31 @@
-# create-svelte
+# Altruist
 
-Everything you need to build a Svelte project, powered by [`create-svelte`](https://github.com/sveltejs/kit/tree/master/packages/create-svelte).
+MadHacks 2023 Project
 
-## Creating a project
+Made with SvelteKit, Bootstrap, ExpressJS, and boba tea.
 
-If you're seeing this, you've probably already done this step. Congrats!
+## Idea
 
-```bash
-# create a new project in the current directory
-npm create svelte@latest
+Altruist is a platform that allows users to easily volunteer at local organizations. It allows users to search for organizations in their area (well, the filter isn't done yet), and then allows them to sign up for volunteer opportunities. It also allows organizations to post volunteer opportunities, and allows them to view the volunteers that have signed up for their opportunities.
 
-# create a new project in my-app
-npm create svelte@latest my-app
-```
+It's also a relatively complex app with many different parts, at least compared to my previous attempts at websites. Databases, APIs, frontend, email, etc.
 
-## Developing
+## Sponsor Challenges
 
-Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
+You know what I like? A challenge. You know what I like more? A challenge that I can win. You know what I like even more than that? A challenge that I can win and get free stuff. You know what I like even more than that? A challenge that I can win and get free stuff and then brag about it on the internet.
 
-```bash
-npm run dev
+Anyway the goal was to learn as many different tools as possible in 24 hours and hopefully make something cool. None of us knew how to use SvelteKit and I had to learn Bootstrap CSS.
 
-# or start the server and open the app in a new browser tab
-npm run dev -- --open
-```
+| Sponsor         | Objective                         | Prize                 | Done?            |
+|-----------------|-----------------------------------|-----------------------|------------------|
+| Associated Bank | automatic round-up deposits       | $70 Steam             | no               |
+| Epic (health)   | healthcare empowerment (???)      | $50 Target            | ...kinda? maybe? |
+| MongoDB Atlas   | use it                            | M5GO IoT Starter Kit  | yes              |
+| Twilio          | use their text/email API          | swag & GameGo Console | yeah             |
+| Hedera          | use their Web3 API                | mechanical keyboard   | no               |
+| Avanade         | sustainability focus              | LEGO                  | i guess?         |
+| Roblox          | use Roblox                        | swag & $100           | no               |
+| TDS             | networking solution               | mini drone            | no               |
+| Name.com        | register a cool .tech domain name | branded backpack      | heck yeah!!!     |
 
-## Building
-
-To create a production version of your app:
-
-```bash
-npm run build
-```
-
-You can preview the production build with `npm run preview`.
-
-> To deploy your app, you may need to install an [adapter](https://kit.svelte.dev/docs/adapters) for your target environment.
+Brought to you by [Bob Pizza™️](https://cdn.discordapp.com/attachments/1081404385592094760/1081797090952368188/Untitled_Artwork.png)
