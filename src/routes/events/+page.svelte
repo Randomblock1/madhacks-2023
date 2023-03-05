@@ -104,7 +104,7 @@
 			</p>
 			<p>{event['description'] || 'Undefined Description'}</p>
 			<p>
-				Volunteers: {event['numVolunteersCurrently'] || 'Unknown'} out of {event[
+				Volunteers: {event['numVolunteersCurrently'] || '0'} out of {event[
 					'numVolunteersNeeded'
 				] || 'Unknown'}
 			</p>
