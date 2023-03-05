@@ -1,6 +1,5 @@
 <script>
 	import { ensureLogin } from '$lib/ensureLogin';
-	import { API_URL } from '$lib/env';
 	import { onMount } from 'svelte';
 	import { API_URL } from '$lib/env.js';
 
