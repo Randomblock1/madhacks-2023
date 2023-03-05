@@ -4,7 +4,7 @@
 		<form action="process_login" method="post">
 			<div class="row align-items-start p-2">
 				<div class="col">
-					<label class="font-styled" style="padding-right: 37px" for="email"> Email: </label>
+					<label class="font-styled" for="email"> Email: </label>
 				</div>
 
 				<div class="col">
