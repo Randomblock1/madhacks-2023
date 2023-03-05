@@ -1,7 +1,7 @@
 <div class="container h-100 d-flex align-items-center justify-content-center">
 	<span class="rounded-box">
 		<h1 class="font-styled">Sign Up</h1>
-		<form action="http://localhost:8000/register" method="post">
+		<form action="{API_URL}/register" method="post">
 			<div class="row align-items-start p-2">
 				<div class="col">
 					<p>Account Type:</p>
@@ -67,7 +67,32 @@
 				</div>
 			</div>
 
-			<input class="btn btn-success font-styled rounded-pill" type="submit" value="Submit" />
+			<input class="btn btn-success font-styled rounded-pill" type="submit" value="Submit"  />
+			<!--on:click={handleClick}
+			<div>{status}</div>-->
 		</form>
 	</span>
 </div>
+
+<script>
+	import { API_URL } from '$lib/env.js';
+/*
+let status = '';
+
+const handleClick = async () => {
+	const sgMail = require('@sendgrid/mail')
+	//sgMail.setApiKey(process.env.SENDGRID_API_KEY)
+	const msg = {
+  	to: 'test@example.com', // Change to your recipient
+  	from: 'test@example.com', // Change to your verified sender
+  	subject: 'Sending with SendGrid is Fun',
+	text: 'and easy to do anywhere, even with Node.js',
+  	html: '<strong>and easy to do anywhere, even with Node.js</strong>',
+	}
+sgMail
+  .send(msg)
+  .then(() => {
+    console.log('Email sent')
+  })
+}*/
+</script>
