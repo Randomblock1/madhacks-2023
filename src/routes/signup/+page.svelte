@@ -1,18 +1,18 @@
 <div class="container h-100 d-flex align-items-center justify-content-center">
 	<span class="rounded-box">
 		<h1 class="font-styled">Sign Up</h1>
-		<form action="/api/signup" method="post">
+		<form action="http://localhost:8000/register" method="post">
 			<div class="row align-items-start p-2">
 				<div class="col">
 					<p>Account Type:</p>
 				</div>
 
 				<div class="col">
-					<input type="radio" name="type" value="volunteer" id="volunteer" checked /> Volunteer
+					<input type="radio" name="isOrg" value="volunteer" id="volunteer" checked /> Volunteer
 				</div>
 
 				<div class="col">
-					<input type="radio" name="type" value="organization" id="organization" /> Organization
+					<input type="radio" name="isOrg" value="organization" id="organization" /> Organization
 				</div>
 			</div>
 
@@ -32,7 +32,7 @@
 				</div>
 
 				<div class="col">
-					<input type="email" id="email" name="email" placeholder="email@example.com" />
+					<input type="email" id="email" name="username" placeholder="email@example.com" />
 				</div>
 			</div>
 
