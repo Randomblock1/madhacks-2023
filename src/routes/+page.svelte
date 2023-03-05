@@ -1,35 +1,23 @@
 <div class="container">
-	<h1 class="font-styled">Volunteering for a better tomorrow</h1>
-	<table cellspacing="30">
-		<tr>
-			<td style="width:45%">
-				<a href="/volunteer">
-					<button class="btn btn-success rounded-pill font-styled space">I'm a volunteer</button></a
-				>
-				<br />
-				<p class="fs-4">
-					Here we connect volunteers with those seeking them. If you are looking to volunteer and
-					don't know where to start. This is the place!
-				</p>
-				<br />
+	<h1 class="font-styled m-2">Volunteering for a better tomorrow</h1>
+	<br />
+	<div class="row">
+		<div class="col">
+			<h2 class="font-styled m-2">I'm a volunteer</h2>
 
-				<a href="/organization">
-					<button class="btn btn-success rounded-pill font-styled m-1"
-						>I'm looking for volunteers</button
-					>
-				</a>
-				<p class="fs-4">
-					If you are an organization in desperate need of volunteers, we are here to help. List any
-					event that needs volunteers to fullfill your volunteering needs.
-				</p>
-			</td>
-			<td style="Width:80px">
-                
-				<br />
-			</td>
-			<td>
-				<img class="bi me-2 footer" src="/volunteer_icon.jpg" alt="I like men" />
-			</td>
-		</tr>
-	</table>
+			<p class="fs-4">
+				Want to volunteer and don't know where to start? We can find volunteering opportunities near
+				you that match your interests (soon).
+			</p>
+
+			<h2 class="font-styled m-2">I'm looking for volunteers</h2>
+
+			<p class="fs-4">
+				Looking for volunteers to help out? List any event, any time, anywhere. It's free!
+			</p>
+		</div>
+		<div class="col">
+			<img class="me-2" style="width:70%" src="/volunteer_icon.jpg" alt="volunteers" />
+		</div>
+	</div>
 </div>
