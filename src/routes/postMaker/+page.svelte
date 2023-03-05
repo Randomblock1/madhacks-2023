@@ -113,7 +113,6 @@
 							type="number"
 							id="volunteerNum"
 							name="numVolunteersNeeded"
-							name="numVolunteersNeeded"
 							placeholder=""
 						/>
 					</div>
