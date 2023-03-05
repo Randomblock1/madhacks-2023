@@ -14,6 +14,8 @@
 		const userEvents = (await userEventRequest.json())['currentCommitments'];
 		for (let i = 0; i < events.length; i++) {
 			events[i]['isRegistered'] = userEvents.includes(events[i]['_id']);
+			events[i]['buttonStyle'] = determineStyle(events[i]);
+			events[i]['buttonText'] = determineText(events[i]);
 		}
 		console.log(events);
 		console.log(userEvents);
@@ -42,6 +44,38 @@
 		}
 		return 'Register';
 	}
+
+	
+	/**
+	 * @param {{ [x: string]: any; numVolunteersCurrently: any; isRegistered: any; }} event
+	 */
+	function modifyRegistration(event) {
+		const event_id = event['_id'];
+		const event_url = API_URL + '/events/' + event_id;
+		if (event['isRegistered'] == true) {
+			fetch(event_url + '/unregister', {
+				method: 'PATCH',
+				credentials: 'include'
+			});
+			event.numVolunteersCurrently -= 1;
+		} else {
+			fetch(event_url + '/register', {
+				method: 'PATCH',
+				credentials: 'include'
+			});
+			event.numVolunteersCurrently += 1;
+		}
+		event.isRegistered = !event.isRegistered;
+		// Determine the new button style and text
+		const newButtonStyle = determineStyle(event);
+		const newButtonText = determineText(event);
+
+		// Update the button style and text
+		event['buttonStyle'] = newButtonStyle;
+		event['buttonText'] = newButtonText;
+
+		events = events;
+	}
 </script>
 
 <div class="container">
@@ -69,8 +103,9 @@
 					'numVolunteersNeeded'
 				] || 'Unknown'}
 			</p>
-			<button class="btn {determineStyle(event)} font-styled rounded-pill p-2"
-				>{determineText(event)}</button
+			<button
+				on:click={() => modifyRegistration(event)}
+				class="btn {event.buttonStyle} font-styled rounded-pill p-2">{event.buttonText}</button
 			>
 		</div>
 		<br />
