@@ -80,6 +80,7 @@
 			<div id="map" style="height: 400px" />
 			{#if user[0]}
 				<script>
+					console.log(user[0]);
 					const map = L.map('map').setView([51.505, -0.09], 13);
 
 					const tiles = L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {

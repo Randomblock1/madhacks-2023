@@ -20,7 +20,7 @@
                     </div>
     
                     <div class="col">
-                        <input class = "sendRight" type="time" id="timeStart" name="timeStart" placeholder=""/>
+                        <input class = "sendRight" type="time" id="timeStart" name="start" placeholder=""/>
                     </div>
                 </div>
 
@@ -30,7 +30,7 @@
                     </div>
     
                     <div class="col">
-                        <input class = "sendRight" type="time" id="timeEnd" name="timeEnd" placeholder=""/>
+                        <input class = "sendRight" type="time" id="timeEnd" name="end" placeholder=""/>
                     </div>
                 </div>
     
@@ -50,7 +50,7 @@
                     </div>
     
                     <div class="col">
-                        <input class = "smallText sendRight" type="number" id="volunteerNum" name="volunteerNum" placeholder="" />
+                        <input class = "smallText sendRight" type="number" id="volunteerNum" name="numVolunteersNeeded" placeholder="" />
                     </div>
                 </div>
     
@@ -61,7 +61,7 @@
                     </div>
     
                     <div class="col">
-                        <textarea  class = "largeText sendRight" id="descriptions" name="descriptions" placeholder="" />
+                        <textarea  class = "largeText sendRight" id="descriptions" name="description" placeholder="" />
                     </div>
                 </div>
     
