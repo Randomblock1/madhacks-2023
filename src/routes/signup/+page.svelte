@@ -1,91 +1,73 @@
-<script>
-	import { onMount } from 'svelte';
-	onMount(() => {
-		const option1 = document.getElementById('option1');
-		const option2 = document.getElementById('option2');
+<div class="container h-100 d-flex align-items-center justify-content-center">
+	<span class="rounded-box">
+		<h1 class="font-styled">Sign Up</h1>
+		<form action="/api/signup" method="post">
+			<div class="row align-items-start p-2">
+				<div class="col">
+					<p>Account Type:</p>
+				</div>
 
-		const display1 = document.getElementById('display1');
-		const display2 = document.getElementById('display2');
+				<div class="col">
+					<input type="radio" name="type" value="volunteer" id="volunteer" checked /> Volunteer
+				</div>
 
-		if (option1 && display1 && display2) {
-			display1.style.display = 'block';
-			option1.addEventListener('change', function () {
-				// Check if the radio button is checked
-				console.log('orireo');
-				display1.style.display = 'block';
-				display2.style.display = 'none';
-			});
-		}
+				<div class="col">
+					<input type="radio" name="type" value="organization" id="organization" /> Organization
+				</div>
+			</div>
 
-		if (option2 && display1 && display2) {
-			option2.addEventListener('change', function () {
-				// Check if the radio button is checked
-				console.log('ofsreo');
-				// The radio button is checked
-				display1.style.display = 'none';
-				display2.style.display = 'block';
-			});
-		}
-	});
-</script>
+			<div class="row p-2">
+				<div class="col">
+					<label for="name">Enter your name: </label>
+				</div>
 
-<div class="container">
-	<div class="position-absolute top-40 start-55">
-		
-		<input class="font-styled" type="radio" name="option" value="option1" id="option1" checked /> Volunteer
+				<div class="col">
+					<input type="text" id="name" name="name" placeholder="John Doe" />
+				</div>
+			</div>
 
-		<input class="font-styled" type="radio" name="option" value="option2" id="option2" /> Organization seeking Volunteer
+			<div class="row p-2">
+				<div class="col">
+					<label for="email">Enter your email: </label>
+				</div>
 
-		<div id="display1" style="display:none; padding-top: 10px;">
-		<span class="rounded-box">
-			<form action="process_signup_volunteer" method="post">
-				<label class="font-styled" for="name">Enter name: </label>
-				<input type="text" id="name" name="name" /><br /><br />
+				<div class="col">
+					<input type="email" id="email" name="email" placeholder="email@example.com" />
+				</div>
+			</div>
 
-				<label class="font-styled" for="email">Enter email: </label>
-				<input type="text" id="email" name="email" /><br /><br />
+			<div class="row p-2">
+				<div class="col">
+					<label for="address">Enter your address: </label>
+				</div>
 
-				<label class="font-styled" for="address">Enter address: </label>
-				<input type="text" id="address" name="address" /><br /><br />
+				<div class="col">
+					<input type="text" id="address" name="address" placeholder="123 Real Steet, City, OH" />
+				</div>
+			</div>
 
-				<label class="font-styled" for="password">Create password: </label>
-				<input type="text" id="password" name="password" /><br /><br />
+			<div class="row p-2">
+				<div class="col">
+					<label for="password">Enter a password: </label>
+				</div>
 
-				<label class="font-styled" for="password">Enter phone number: </label>
-				
-				<input class="font-styled" type="text" id="password" name="password" >
-				<p><small>(Optional)</small></p>
+				<div class="col">
+					<input type="password" id="password" name="password" placeholder="**********" />
+				</div>
+			</div>
 
-				<input  class="font-styled rounded-pill float-right" type="submit" value="Submit" />
-			</form>
-		</span>
-		</div>
+			<div class="row p-2">
+				<div class="col">
+					<label for="phone">Enter your phone number: </label>
+					<p><small><i>(Optional)</i></small></p>
+				</div>
 
-		<div id="display2" style="display:none; padding-top: 10px;">
-			<span class="rounded-box">
-			<form action="process_signup_volunteer" method="post">
-				<label class="font-styled" for="name">Enter organization: </label>
-				<input type="text" id="name" name="name" /><br /><br />
+				<div class="col">
+					<input type="tel" id="phone" name="phone" placeholder="123-456-7890" />
+				</div>
+			</div>
 
-				<label class="font-styled" for="email">Enter email: </label>
-				<input type="text" id="email" name="email" /><br /><br />
-
-				<label class="font-styled" for="address">Enter website: </label>
-				
-				<input type="text" id="address" name="address">
-				<p><small>(Optional)</small></p>
-
-				<label class="font-styled" for="password">Create password: </label>
-				<input type="text" id="password" name="password" /><br /><br />
-
-				<label class="font-styled" for="password">Enter phone number: </label>
-				
-				<input class="font-styled" type="text" id="password" name="password">
-				<p><small>(Optional)</small></p>
-
-				<input  class="font-styled rounded-pill float-right" type="submit" value="Submit" />
-			</form>
-		</span>
-		</div>
-	</div>
+			<input class="btn btn-success font-styled rounded-pill" type="submit" value="Submit" />
+		</form>
+	</span>
 </div>
