@@ -80,13 +80,20 @@
 			<div id="map" style="height: 400px" />
 			{#if user[0]}
 				<script>
-					console.log(user[0]);
-					const map = L.map('map').setView([51.505, -0.09], 13);
+					navigator.geolocation.getCurrentPosition(showMap);
 
-					const tiles = L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
-						maxZoom: 19,
-						attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
-					}).addTo(map);
+					async function showMap(position) {
+						const map = L.map('map').setView(
+							[position.coords.latitude, position.coords.longitude],
+							13
+						);
+						// const map = L.map('map').setView([0, 0], 13);
+						const tiles = L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+							maxZoom: 19,
+							attribution:
+								'&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+						}).addTo(map);
+					}
 				</script>
 			{/if}
 		</div>
