@@ -1,5 +1,6 @@
 <script>
 	import { onMount } from 'svelte';
+	import { API_URL } from '$lib/env.js';
 
 	/**
 	 * @type {string | any[]}
@@ -11,8 +12,8 @@
 	let user = [];
 
 	async function loadData() {
-		const eventRequest = await fetch('http://localhost:8000/events', { credentials: 'include' });
-		const userEventRequest = await fetch('http://localhost:8000/users?full=true', {
+		const eventRequest = await fetch(API_URL + '/events', { credentials: 'include' });
+		const userEventRequest = await fetch(API_URL + '/users?full=true', {
 			credentials: 'include'
 		});
 		const tst = await userEventRequest.json();
@@ -74,6 +75,20 @@
 					</div>
 				{/if}
 			</div>
+		</div>
+		<div class="row">
+			<div id="map" style="height: 400px" />
+			{#if user[0]}
+				<script>
+					console.log(user[0]);
+					const map = L.map('map').setView([51.505, -0.09], 13);
+
+					const tiles = L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+						maxZoom: 19,
+						attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+					}).addTo(map);
+				</script>
+			{/if}
 		</div>
 	</div>
 </div>

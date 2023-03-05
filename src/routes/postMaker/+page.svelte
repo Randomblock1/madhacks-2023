@@ -21,7 +21,7 @@
                     </div>
     
                     <div class="col">
-                        <input class = "sendRight" type="time" id="start" name="timeStart" placeholder=""/>
+                        <input class = "sendRight" type="time" id="start" name="start" placeholder=""/>
                     </div>
                 </div>
 
@@ -31,7 +31,7 @@
                     </div>
     
                     <div class="col">
-                        <input class = "sendRight" type="time" id="end" name="timeEnd" placeholder=""/>
+                        <input class = "sendRight" type="time" id="timeEnd" name="end" placeholder=""/>
                     </div>
                 </div>
     
