@@ -33,8 +33,9 @@
 					/>
 				</div>
 			</div>
-
-			<input class="btn btn-success font-styled rounded-pill" type="submit" value="Submit" />
+			<a href="./events">
+				<input class="btn btn-success font-styled rounded-pill" type="submit" value="Submit" />
+			</a>
 		</form>
 	</span>
 </div>
