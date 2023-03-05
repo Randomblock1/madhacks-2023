@@ -1,4 +1,5 @@
 <script>
+	import { ensureLogin } from '$lib/ensureLogin';
 	import { onMount } from 'svelte';
 	import { API_URL } from '$lib/env.js';
 
@@ -23,6 +24,7 @@
 	}
 
 	onMount(loadData);
+	onMount(ensureLogin);
 </script>
 
 <div class="container">
