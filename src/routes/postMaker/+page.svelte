@@ -2,14 +2,38 @@
 	import { ensureLogin } from '$lib/ensureLogin';
 	import { onMount } from 'svelte';
 
-	onMount(ensureLogin);
+	import DatePicker from '@beyonk/svelte-datepicker/src/components/DatePicker.svelte';
+	import { API_URL } from '$lib/env';
+
+	/**
+	 * @type {any}
+	 */
+	let startTime;
+	/**
+	 * @type {any}
+	 */
+	let endTime;
+
+
+    /**
+	 * @type {string}
+	 */
+    let org_id;
+
+    async function getUserData() {
+        ensureLogin();
+    const userAuthData = await fetch(API_URL + '/', { credentials: 'include' });
+    org_id = (await userAuthData.json())['id'];
+}
+
+	onMount(getUserData);
 </script>
 
 <div class="container">
 	<div class="container h-100 d-flex align-items-center justify-content-center">
 		<span class="rounded-box">
 			<h1 class="font-styled">Create Volunteer Event</h1>
-			<form action="http://localhost:8000/events" method="post">
+			<form action="{API_URL}/events" method="post">
 				<div class="row p-2">
 					<div class="col">
 						<label for="name">Enter name of event: </label>
@@ -26,7 +50,18 @@
 					</div>
 
 					<div class="col">
-						<input class="sendRight" type="string" id="start" name="start" placeholder="01/20/2023" />
+						<DatePicker
+							selected={false}
+							time={true}
+							on:date-selected={(e) => (startTime = e.detail)}
+						/>
+						<input
+							class="sendRight"
+							type="text"
+							id="timeStart"
+							name="timeStart"
+							value={(startTime || '')['date'] || ''}
+						/>
 					</div>
 				</div>
 
@@ -36,7 +71,18 @@
 					</div>
 
 					<div class="col">
-						<input class="sendRight" type="string" id="end" name="end" placeholder="01/20/2023" />
+						<DatePicker
+							selected={false}
+							time={true}
+							on:date-selected={(e) => (endTime = e.detail)}
+						/>
+						<input
+							class="sendRight"
+							type="text"
+							id="timeEnd"
+							name="timeEnd"
+							value={(endTime || '')['date'] || ''}
+						/>
 					</div>
 				</div>
 
@@ -74,7 +120,7 @@
 
 				<div class="row p-2">
 					<div class="col">
-						<label for="descriptions">Enter description ef event: </label>
+						<label for="description">Enter description ef event: </label>
 						<p><small><i>(Optional)</i></small></p>
 					</div>
 
@@ -87,6 +133,8 @@
 						/>
 					</div>
 				</div>
+
+                <input type="hidden" name="org" value={org_id} />
 
 				<input class="btn btn-success font-styled rounded-pill" type="submit" value="Submit" />
 			</form>
