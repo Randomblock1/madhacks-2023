@@ -1,6 +1,6 @@
 <script>
 	import { onMount } from 'svelte';
-    import { API_URL } from '$lib/env.js';
+	import { API_URL } from '$lib/env.js';
 
 	/**
 	 * @type {string | any[]}
@@ -76,9 +76,18 @@
 				{/if}
 			</div>
 		</div>
-        <div class="row">
-            <script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js" integrity="sha512-gZwIG9x3wUXg2hdXF6+rVkLF/0Vi9U8D2Ntg4Ga5I5BZpVkVxlJWbSQtXPSiUTtC0TjtGOmxa1AJPuV0CPthew==" crossorigin=""></script>
-            <div id="map"></div>
-        </div>
+		<div class="row">
+			<div id="map" style="height: 400px" />
+			{#if user[0]}
+				<script>
+					const map = L.map('map').setView([51.505, -0.09], 13);
+
+					const tiles = L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+						maxZoom: 19,
+						attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+					}).addTo(map);
+				</script>
+			{/if}
+		</div>
 	</div>
 </div>
