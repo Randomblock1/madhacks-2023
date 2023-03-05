@@ -1,7 +1,11 @@
+<script>
+	import { API_URL } from '$lib/env.js';
+</script>
+
 <div class="container h-100 d-flex align-items-center justify-content-center">
 	<span class="rounded-box">
 		<h1 class="font-styled">Login</h1>
-		<form action="http://localhost:8000/login" method="post">
+		<form action="{API_URL}/login" method="post">
 			<div class="row align-items-start p-2">
 				<div class="col">
 					<label class="font-styled" for="email"> Email: </label>

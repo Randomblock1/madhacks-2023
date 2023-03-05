@@ -1,7 +1,7 @@
 <div class="container h-100 d-flex align-items-center justify-content-center">
 	<span class="rounded-box">
 		<h1 class="font-styled">Sign Up</h1>
-		<form action="http://localhost:8000/register" method="post">
+		<form action="{API_URL}/register" method="post">
 			<div class="row align-items-start p-2">
 				<div class="col">
 					<p>Account Type:</p>
@@ -74,7 +74,9 @@
 	</span>
 </div>
 
-<script> /*
+<script>
+	import { API_URL } from '$lib/env.js';
+/*
 let status = '';
 
 const handleClick = async () => {
