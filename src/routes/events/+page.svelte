@@ -141,7 +141,7 @@
 				] || 'Unknown'}
 			</p>
 			<p>
-				Distance away: {event['distance'] || "Unknown"}
+				Distance away: {event['distance'] || "Unknown"} 
 			</p>
 			<button
 				on:click={() => modifyRegistration(event)}
