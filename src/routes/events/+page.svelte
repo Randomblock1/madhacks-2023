@@ -2,6 +2,7 @@
 	import { onMount } from 'svelte';
 	import { API_URL } from '$lib/env.js';
 	import { ensureLogin } from '$lib/ensureLogin';
+	import { now } from 'svelte/internal';
 
 	/**
 	 * @type {string | any[]}
@@ -96,7 +97,10 @@
 					day: 'numeric',
 					hour: 'numeric',
 					minute: 'numeric'
-				}).format(new Date(event['time']))}
+				}).format(new Date(event['time']['start']))} - {Intl.DateTimeFormat(navigator.language, {
+					hour: 'numeric',
+					minute: 'numeric'
+				}).format(new Date(event['time']['end']))}
 			</p>
 			<p>{event['description'] || 'Undefined Description'}</p>
 			<p>
